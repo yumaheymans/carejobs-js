@@ -1,0 +1,57 @@
+{
+  "name": "carejobs",
+  "version": "1.0.0",
+  "description": "Client and CLI for the CareJobs.Now healthcare jobs API: search US healthcare jobs and the pay employers post",
+  "keywords": [
+    "healthcare",
+    "jobs",
+    "nursing",
+    "job-search",
+    "salary",
+    "mcp",
+    "api",
+    "careers"
+  ],
+  "license": "MIT",
+  "author": "CareJobs.Now <hello@carejobs.now>",
+  "homepage": "https://carejobs.now/data",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yumaheymans/carejobs-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yumaheymans/carejobs-js/issues"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "carejobs": "dist/bin.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\" && tsc -p tsconfig.json",
+    "pretest": "npm run build",
+    "test": "node --test",
+    "prepublishOnly": "npm test"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.5",
+    "typescript": "7.0.2"
+  }
+}
